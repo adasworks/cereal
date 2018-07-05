@@ -45,7 +45,7 @@ namespace cereal
   template <class Archive, class R, class P> inline
   void CEREAL_LOAD_FUNCTION_NAME( Archive & ar, std::chrono::duration<R, P> & dur )
   {
-    R count;
+    R count{};
     ar( CEREAL_NVP_("count", count) );
 
     dur = std::chrono::duration<R, P>{count};
@@ -62,7 +62,7 @@ namespace cereal
   template <class Archive, class C, class D> inline
   void CEREAL_LOAD_FUNCTION_NAME( Archive & ar, std::chrono::time_point<C, D> & dur )
   {
-    D elapsed;
+    D elapsed{};
     ar( CEREAL_NVP_("time_since_epoch", elapsed) );
 
     dur = std::chrono::time_point<C, D>{elapsed};
